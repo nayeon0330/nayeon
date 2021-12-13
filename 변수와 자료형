@@ -1,0 +1,45 @@
+Python
+변수와 자료형에 대하여..
+
+특징
+1. 파이썬에서는 =(등호)를 이용해 변수에 자료를 넣는다. ex. 번수명 = data / 숫자 / 문자열
+2. 공백 무시
+3. 데이터가 할당된 변수를 이용하려면 변수명만 쓴다.
+4. 변수명에 할당한 값 출력할 경우, print(변수명)
+   => print(변수명) 이용하지 않고 변수명을 실행해 할당된 값을 출력할 수 있다.
+   
+# 데이터를 변수에 할당
+abc = 12340
+# 할당된 변수 이용
+print(abc)
+
+변수명 만드는 규칙
+1. 문자, 숫자, 밑줄(_)를 이용해 만든다.
+2. 숫자로 시작할 수 없다.
+3. 대소문자 구분
+4. 공백 미포함
+   => ex. my_book / myBook
+5. 예약어 이용 불가
+   None, True, False, and, as, assert, break, class, continue, def, del, elif, else, except,
+   finally, for, from, global, if, import, in, is, lamda, nonlocal, not, or, pass, raise, return,
+   try, while, with, yield
+   
+   <문자열>
+   1. 시작과 끝에 " or ' 를 지정 => 양쪽에 같은 기호를 이용
+      ex. print("String Test") / print('String Test')  => String Test
+   2. 문자열을 변수에 저장한 후 print() 함수로 출력
+      ex. string1 = "String Test 1"   => String Test 1 
+          string2 = 'String Test 2'   => String Test 2
+          print(string1) / print(string2)
+   3. 문자열의 타입
+      type(string1) => str
+      type(string2) => str
+      
+   4. 문자열 안에 "" , '' 같이 포함
+      string3 = 'This is a "double" quotation test'
+      string4 = "This is a 'single' quotation test"
+      print(string3) => This is a double quotation test
+      print(string4) => This is a single quotation test
+      
+   5. 주석 처리 : """문자열 전체""" / '''문자열 전체'''   
+      
