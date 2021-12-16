@@ -1,0 +1,261 @@
+# -*- coding: utf-8 -*-
+"""
+리스트 실습 내용 정리
+
+개인 연습
+"""
+# 데이터를 갖는 리스트 선언
+music = ['Pop song', 'Hiphop', 'Ballade', 'Latin pop']
+
+# 데이터 없는 리스트 선언
+music = []
+
+## 데이터 추가하기 방법
+# 1. 리스트 데이터 추가하기 : append() 
+# append() 항상 맨 마지막(index)에 데이터 추가하기
+music.append("Agitation")
+music.append("Popular Music")
+music.append("CLassic")
+
+# 2. + 연산자로 데이터 추가
+music = music + ['CCM']
+
+
+## 범위를 지정하여 리스트 선언 : range()
+# 0 ~ 10 사이의 정수 생성
+# range (시작값, 끝값, 증감값)
+list(range(10))
+'''
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+'''
+
+list(range(0,9))
+'''
+0 ~ 9 정수 출력
+[0, 1, 2, 3, 4, 5, 6, 7, 8]
+'''
+
+list(range(0,9,3))
+'''
+0 ~ 9 정수 출력 + 3씩 숫자 간격
+[0, 3, 6]
+'''
+
+
+## 리스트끼리 연산
+# 덧셈
+# 문자열 데이터를 갖는 두개의 리스트 덧셈
+numbers = [10, 20, 30] + [100, 200, 300]
+'''
+[10, 20, 30, 100, 200, 300]
+'''
+
+# 곱셈 : 리스트 * 숫자
+test = [10, 20, 30] * 5
+'''
+리스트 안 데이터 3번씩 반복
+[10, 20, 30, 10, 20, 30, 10, 20, 30, 10, 20, 30, 10, 20, 30]
+'''
+
+# 리스트 내의 특정 데이터 존재 여부 확인 방법
+numbers = [10, 20, 30, 100, 200, 300]
+'''
+[10, 20, 30, 100, 200, 300]
+'''
+
+# 존재할 경우 : True
+30 in numbers
+'''
+True
+'''
+
+200 not in numbers
+'''
+값이 존재한다..
+False
+'''
+
+# 존재하지 않을 경우 : False
+75 in numbers
+'''
+False
+'''
+
+
+# 없을 경우 : True
+316 not in numbers
+'''
+True
+'''
+
+
+## 하나의 리스트에는 다양한 데이터를 저장할 수 있다.
+slist1 = ['Kim', 178.9, 'Park', 173.5, 'Lee', 176.1]
+'''
+['Kim', 178.9, 'Park', 173.5, 'Lee', 176.1]
+'''
+
+# 리스트 내의 데이터 추출 : 리스트[index]
+slist1[1], slist1[3], slist1[5]
+'''
+키 값만 출력
+(178.9, 173.5, 176.1)
+'''
+
+slist1[0], slist1[2], slist1[4]
+'''
+사람 성만 출력
+('Kim', 'Park', 'Lee')
+'''
+
+# 2차원 구조를 갖는 리스트
+#             0               1                3
+#             0      1        0       1        0       1
+slist2 = [ ['Kim', 178.9], ['Park', 173.5], ['Lee', 176.1]]
+'''
+[['Kim', 178.9], ['Park', 173.5], ['Lee', 176.1]]
+'''
+
+slist2[0][0]
+'''
+'Kim'
+'''
+
+slist2[0][1]
+'''
+178.9
+'''
+
+
+
+## 파이썬 내장 집계함수를 이용한 리스트 데이터 다루기
+# len / max / min / sum
+
+n_list = [200, 700, 500, 300, 400]
+'''
+[200, 700, 500, 300, 400]
+'''
+
+# 1. 데이터의 갯수 : len(리스트) / for in 에서 반복횟수 지정 시에도 자주 사용
+n = len(n_list)
+'''
+갯수
+5
+'''
+
+# 2. 리스트 내의 데이터 중 가장 큰 값 추출 : max(리스트)
+n2 = max(n_list)
+'''
+가장 큰 값
+700
+'''
+
+# 3. 리스트 내의 데이터 중 가장 작은 값 추출 : min(리스트)
+n3 = min(n_list)
+'''
+가장 작은 값
+200
+'''
+
+# 4. 리스트 내의 데이터들의 합 : sum(리스트)
+n4 = sum(n_list)
+'''
+2100
+'''
+
+# 5. 리스트 내에 0이 있는지 확인 : any() : 리스트 내에 0이 아닌 데이터가 하나라도 있으면 True
+score_list = [50, 65, 70, 85, 90, 100]
+
+any(score_list)
+'''
+65, 85 0이 아닌 데이터가 존재
+True
+'''
+
+ex_list = [0, '']
+any(ex_list)
+'''
+ False
+'''
+
+## 리스트 내의 데이터 변경(index를 이용) 및 삽입(insert()를 이용)
+# index(+)        0       1       2      3        4      5    6      7   
+# index(-)        0      -7      -6     -5       -4     -3   -2     -1 
+
+student_list = ['Mary', 177.8, 'Susan', 159.4, 'TOM', 190.5, 'Max', 174.6]
+
+# 'TOM', 190.5 => 174.6
+student_list[5] = 174.6       # student_list[5] = 174.6은 student_list[-3] = 174.6 와 같다..
+
+# 'Max', 174.6 => 190.5
+student_list[-1] = 190.5      # student_list[-1] = 190.5은 student_list[7] = 190.5
+
+
+# 새로운 데이터를 원하는 index 위치에 삽입 : 리스트의 insert(index, 데이터) 함수를 이용
+student_list.insert(4, 'Eric')
+'''
+['Mary', 177.8, 'Susan', 159.4, 'Eric', 'TOM', 174.6, 'Max', 190.5]
+'''
+
+student_list.insert(5, 188.7)
+'''
+ ['Mary', 177.8, 'Susan', 159.4, 'Eric', 188.7, 'TOM', 174.6, 'Max', 190.5]
+'''
+
+
+
+
+### 리스트의 주요 함수
+"""
+index(x)            : 데이터(x)에 해당하는 index를 반환
+append(x)           : 리스트의 맨 뒤에 데이터(x)를 추가
+count(x)            : 리스트 내에서 데이터(x)의 갯수를 반환
+extend([x1, x2])    : 기존 리스트 내에 [데이터(x1), 데이터(x2)]를 삽입
+insert(index, x)    : 기존 리스트 내에 지정한 index에 해당하는 위치에 데이터(x)를 삽입
+remove(x)           : 기존 리스트내의 데이터(x)를 삭제
+pop(index)          : index에 해당하는 데이터를 삭제하고, 삭제된 데이터를 반환
+sort()              : 기존 리스트 내의 데이터들을 오름차순으로 정렬, reverse=True 설정시, 내림차순으로 정렬
+reverse()           : 기존 리스트 내의 데이터들의 순서를 역순으로 재배
+"""
+
+## 리스트 내의 데이터를 삭제 : remove(데이터) / pop(데이터) / del
+music = ['Pop song', 'Hiphop', 'Ballade', 'Latin pop', 'Agitation', 'Popular Music', 'Classic', 'CCM']
+'''
+['Pop song',
+ 'Hiphop',
+ 'Ballade',
+ 'Latin pop',
+ 'Agitation',
+ 'Popular Music',
+ 'Classic',
+ 'CCM']
+'''
+
+# 데이터를 이용하여 삭제만
+music.remove('Ballade')
+'''
+발라드 삭제
+['Pop song',
+ 'Hiphop',
+ 'Latin pop',
+ 'Agitation',
+ 'Popular Music',
+ 'Classic',
+ 'CCM']
+'''
+
+# index를 이용하여 삭제후, 삭제된 데이터 반환
+p = music.pop(1)
+'''
+발라드는 이미 remove()를 통해서 삭제 되었다..
+pop()를 통해서 index번호[1] 'Hiphop' 제거
+
+['Pop song', 'Latin pop', 'Agitation', 'Popular Music', 'Classic', 'CCM']
+'''
+
+# index를 이용하여 데이터만 삭제 : del은 리스트의 메서드가 아님!!!
+del music[0]
+'''
+'Pop song' 삭제
+['Latin pop', 'Agitation', 'Popular Music', 'CCM']
+'''
