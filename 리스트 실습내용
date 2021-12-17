@@ -203,8 +203,6 @@ student_list.insert(5, 188.7)
 '''
 
 
-
-
 ### 리스트의 주요 함수
 """
 index(x)            : 데이터(x)에 해당하는 index를 반환
