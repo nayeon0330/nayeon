@@ -1,0 +1,192 @@
+### 리스트 객체 생성과 참조
+"""
+새로운 리스트(변수 및 다른 자료 구조)가 생성되면
+메모리 상에 생성된 리스트에 대한 위치가 지정된다.
+
+리스트를 다른 리스트에 대입할 경우,
+메모리의 위치가 변경되지 않고 동일한 위치를 사용하기 때문에
+이 경우에는 참조가 된다.
+"""
+alist = ['Kim', 'Park', 'Lee', 'Hong']
+blist = alist
+
+'''
+alist
+['Kim', 'Park', 'Lee', 'Hong']
+'''
+
+'''
+blist
+['Kim', 'Park', 'Lee', 'Hong']
+'''
+
+# 객체의 메모리 위치 확인 : id(객체)
+id(alist)
+'''
+3071254818496
+'''
+
+id(blist)
+'''
+3071254818496
+'''
+
+# 따라서 두개의 리스트 중 하나의 리스트 값을 변경하면 두 개 리스트에 모두 적용된다..
+blist[1] = 'Amy'
+'''
+['Kim', 'Amy', 'Lee', 'Hong']
+'''
+
+alist
+'''
+['Kim', 'Amy', 'Lee', 'Hong']
+'''
+
+
+### 지존 리스트를 이용하여 새로운 리스트 생성
+c_list = ['abc', 'cat', 'apple', 'duck', 'piano']
+
+
+# 1. list()를 이용하여 새로운 리스트 객체 생성
+d_list = list(c_list)
+
+id(c_list)
+'''
+3071274537728
+'''
+
+id(d_list)
+'''
+3071254820480
+'''
+
+c_list[3] = 'pizza'
+'''
+['abc', 'cat', 'apple', 'pizza', 'piano']
+'''
+
+d_list
+'''
+c_list / d_list 서로 다른 메모리 위치에 존재하기 때문에
+c_list[3] 에 'pizza' 문자열을 추가해서 변화가 일어났지만
+d_list에는 어떠한 변화가 일어나지 않고 그대로다..
+
+['abc', 'cat', 'apple', 'duck', 'piano']
+'''
+
+# 2. 기존 리스트의 데이터를 추출하여 새로운 리스트에 할당..
+sports = ['tennis', 'baseball', 'football', 'swim', 'running', 'soccer']
+
+sports.index('soccer')
+'''
+5
+'''
+
+sports.index('limbo')
+'''
+리스트 내에 없는 데이터에 대한 index를 요청할 경우, 오류 발생
+
+Traceback (most recent call last):
+  ~~
+ValueError: 'limbo' is not in list
+'''
+
+
+# 따라서 리스트내의 데이터에 대한 index를 반환받을 경우에는 if를 이용하여 사전에 확인이 필요!!!
+if 'soccer' in sports:
+    print(sports.index('soccer'))
+'''
+5
+'''
+
+if 'limbo' in sports:
+    print(sports.index('limbo'))
+else:
+    print('죄송합니다. 해당 데이터가 없습니다.')
+'''
+데이터가 존재하지 않을 경우 조건문을 통해서
+메시지로 알려준다..
+
+죄송합니다. 해당 데이터가 없습니다.
+'''
+
+
+### 리스트 내의 데이터 정렬 : 리스트의 sort()
+# 숫자 데이터 보유 : 데이터의 크기 순으로 정렬
+thousands = [9000, 8000, 5000, 3000, 7000, 2000, 6000]
+thousands.sort()
+'''
+오름차순
+[2000, 3000, 5000, 6000, 7000, 8000, 9000]
+'''
+
+thousands.sort(reverse=True)
+'''
+내림차순 => 역순
+[9000, 8000, 7000, 6000, 5000, 3000, 2000]
+'''
+
+"""
+리스트의 sort() : 기존 리스트 데이터를 변경
+리스트의 sorted() : 기존 리스트 데이터는 변경되지 않고, 변경된 데이터를 반환
+"""
+
+thousands = [9000, 8000, 5000, 3000, 7000, 2000, 6000]
+sorted_list = sorted(thousands)
+'''
+[2000, 3000, 5000, 6000, 7000, 8000, 9000]
+'''
+
+thousands = [9000, 8000, 5000, 3000, 7000, 2000, 6000]
+sorted_list = sorted(thousands, reverse=True)
+'''
+thousands = [9000, 8000, 5000, 3000, 7000, 2000, 6000]
+'''
+
+# sorted()에 문자열을 설정했을 경우,
+# 하나로된 문자열을 각각의 문자로 분리하여 정렬(리스트)
+sorted("Hi I am a princess lives in city of Paris")
+'''
+ 'H','I','I', 'A, 'M', 'A', 'P', 'R', 'I', 'N', 'C', 'E', 'S','S', 'L', 'I', 'V', 'E', 'S', 
+ 'I', 'N', 'C', 'I', 'T', 'Y', 'O', 'F', 'P', 'A', 'R', 'I', 'S'
+'''
+
+
+### 매일 새로운 문장을 출력
+"""
+작업 내용
+1. 여러 가지 문장을 리스트에 저장
+2. random 모듈을 이용하여 매번 다른 문장을 추출 : random 모듈의 choice()
+3. 추출된 문장을 출력
+"""
+# 1. 여러 가지 문장을 리스트에 저장
+quotes = [] 
+quotes.append("사람은 생각하기에 따라 운명이 좌우된다.") 
+quotes.append("휴식은 게으름도, 멈춤도 아니다.") 
+quotes.append("고생되도 생명길로 가자") 
+quotes.append("마음과 뜻과 목숨다해 끝까지 최선을 다해야지") 
+quotes.append("전진 그리고 승리") 
+quotes.append("일어나라 빛을 발하라") 
+quotes.append("실패는 성공의 어머니다.") 
+quotes.append("생각이 신이다.") 
+quotes.append("씨앗이 되어서") 
+'''
+['사람은 생각하기에 따라 운명이 좌우된다.',
+ '휴식은 게으름도, 멈춤도 아니다.',
+ '고생되도 생명길로 가자',
+ '마음과 뜻과 목숨다해 끝까지 최선을 다해야지',
+ '전진 그리고 승리',
+ '일어나라 빛을 발하라',
+ '실패는 성공의 어머니다.',
+ '생각이 신이다.',
+ '씨앗이 되어서']
+'''
+
+# 2. random 모듈을 이용하여 매번 다른 문장을 추출 : random 모듈의 choice(임의의 값을 추출할 수 있는 리스트)
+import random
+
+daily_quote = random.choice(quotes)
+
+
+# 3. 추출된 문장을 출력
+print("오늘의 문장 : ", daily_quote)
