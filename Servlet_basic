@@ -162,25 +162,25 @@ Servlet 등록 방법
 				    서블릿 초기화 파라미터 추출하는 방법 : ServletConfig
 				     String 변수 = getInitParameter("초기 파라미터명");
 				     
-				3. jsp & servlet 데이터 공유 : ServletContext
-				여러 servlet에서 공통적으로 사용할 데이터를 공유할 경우,
-				context parameter를 이용하여 web.xml 문서에 기술
+jsp & servlet 데이터 공유 : ServletContext
+  여러 servlet에서 공통적으로 사용할 데이터를 공유할 경우,
+  context parameter를 이용하여 web.xml 문서에 기술
 			
-					<context-param>
-						<param-name>공유 파라미터 이름</param-name>
-						<param-value>공유값</param-value>
-					</context-param>
+    <context-param>
+       <param-name>공유 파라미터 이름</param-name>
+       <param-value>공유값</param-value>
+    </context-param>				
 							
-   		               4. 공유 데이터 추출 : context 영역 데이터
-   		     	           String 변수 = getServletContext().getInitParameter("공유 파라미터 이름");
+ 공유 데이터 추출 : context 영역 데이터
+  String 변수 = getServletContext().getInitParameter("공유 파라미터 이름");
    		     
-   		                  *** WEB-INF 폴더 내부는 외부에서 접근 못하도록 차단된 폴더!!!
-   		                      web.xml
-   		                      ~~.jsp / ~~.html 파일들은 반드시 WebContent 영역에 존재!!!!
+  *** WEB-INF 폴더 내부는 외부에서 접근 못하도록 차단된 폴더!!!
+      web.xml
+      ~~.jsp / ~~.html 파일들은 반드시 WebContent 영역에 존재!!!!
      	  
-     	                      5. jsp 또는 servlet으로 바로 이동 : response.sendRedirect()
-     	     	                  response.sendRedirect("page.jsp?no=1&search=spring");
+jsp 또는 servlet으로 바로 이동 : response.sendRedirect()
+  response.sendRedirect("page.jsp?no=1&search=spring");
      	     	
-     	     	                  response.sendRedirect() 사용시 주의사항
-     	     		            response.sendRedirect()를 기준으로 위, 아래에는 화면 출력코드를 사용하지 않는다!!!!
-     	     		            이유 : response.sendRedirect()를 만나면 해당 페이지로 바로 이동하기 때문에..
+  response.sendRedirect() 사용시 주의사항
+  response.sendRedirect()를 기준으로 위, 아래에는 화면 출력코드를 사용하지 않는다!!!!
+  이유 : response.sendRedirect()를 만나면 해당 페이지로 바로 이동하기 때문에..
