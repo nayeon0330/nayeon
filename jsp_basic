@@ -79,4 +79,27 @@ HTML => JSP : form 태그 사용 /  웹 주소줄 / <a href="">링크
 	
 jsp <=> jsp : 객체를 전송 가능
 jsp <=> Servlet : 객체를 전송 가능
-=> request 객체(매개변수)에 객체(데이터)를 저장하여 전송               
+=> request 객체(매개변수)에 객체(데이터)를 저장하여 전송
+
+액션 태그 : jsp페이지 내에서 어떤 동작을 하도록 지시하는 내장 태그
+다른 페이지로 이동 / 다른 페이지를 내장
+자바 코드를 html 태그 사용할 경우..
+=> (JSTL : 별도의 라이브러리가 필요!! <%@ tablib ~~ %>)
+
+1. forward : 다른 페이지로 이동할때 사용
+   <jsp:forward page="이동할 페이지(~~.jsp)" />
+   
+2. include : 다른 페이지를 현재 페이지에 내장(삽입)할때
+   <jsp:include page="내장(삽입)할 페이지(~~.jsp)" />
+   
+3. param : forward / include 태그 내에서 전달할 값을 설정할때 사용
+    <jsp:forward page="이동할 페이지(~~.jsp)" flush="true" />
+      <jsp:param name="파라미터명" value="전달값" />
+                    ~~~
+    </jsp:forward>
+   
+    <jsp:include page="이동할 페이지(~~.jsp)" />
+      <jsp:param name="파라미터명" value="전달값" />
+                    ~~~
+    </jsp:include>		    
+   
