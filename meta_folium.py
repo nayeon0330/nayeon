@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Fri Dec 24 14:05:52 2021
-
-@author: Playdata
 """
 
 import folium
