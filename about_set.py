@@ -2,8 +2,6 @@
 """
 Created on Fri Dec 17 09:20:31 2021
 
-@author: Playdata
-
 set 정리
 
 1. 수학의 집합과 유사
