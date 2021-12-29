@@ -1,0 +1,241 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Dec 27 9:15 2021
+
+딕셔너리에 대한 정리
+"""
+
+1. 리스트, 튜플처럼 파이썬이 제공하는 기본 자료구조
+2. key, value가 한쌍(value-pair)으로
+
+선언 : {key:value}
+      {key:{key:value}}
+      {key:[ ]}
+      {key:(  )}
+      {  }
+"""
+# 1. 빈 dict를 생성하고, 키와 값을 추가
+phone_book = { }
+phone_book["홍길동"] = "010-1234-5678"
+"""
+빈 dict에 키와 값을 추가할 경우
+dict = {  }
+dict = [newKey] = new_value
+"""
+
+type(phone_book)
+'''
+dict
+'''
+
+phone_book["강감찬"] = "010-1234-5679"
+phone_book["이순신"] = "010-1234-5680"
+print(phone_book)
+'''
+여러개의 key와 value를 가지는 dict를 출려하면 key와 value가 한쌍으로 묶여서 출력된다..
+
+{'홍길동': '010-1234-5678', '강감찬': '010-1234-5679', '이순신': '010-1234-5680'}
+'''
+
+# 2. dict value 추출 방법 : key를 이용하여 value를 추출
+#    주의 : dict는 동일한 key를 가질 수 없다..
+#           동일한 key를 이용하여 새로운 value를 추가하면 기존 key에 새로운 value가 입력된다.
+print(phone_book["강감찬"])
+'''
+010-1234-5679
+'''
+
+phone_book["강감찬"] = "010-0000-0000"
+print(phone_book["강감찬"])
+'''
+010-0000-0000
+'''
+
+print(phone_book)
+'''
+{'홍길동': '010-1234-5678', '강감찬': '010-0000-0000', '이순신': '010-1234-5680'}
+'''
+
+
+# 3. key 이름들을 추출하는 방법 : dict의 keys()를 이용
+phone_book.keys()
+'''
+ dict_keys(['홍길동', '강감찬', '이순신'])
+'''
+
+# 4. vaule들을 추출하는 방법 : dict.values()를 이용
+phone_book.values()
+'''
+dict_values(['010-1234-5678', '010-0000-0000', '010-1234-5680'])
+'''
+
+# 5. dict의 모든 데이터를 각각 한쌍으로 묶어서 추출하는 방법 : dict의 items()를 이용
+phone_book.items()
+'''
+dict_items([('홍길동', '010-1234-5678'), ('강감찬', '010-0000-0000'), ('이순신', '010-1234-5680')])
+'''
+
+# 6. dict의 모든 데이터(key와 value를 분리)를 출력하는 방법 : for in을 사용
+for name, phone in phone_book.items():
+    print(name, phone)
+'''
+홍길동 010-1234-5678
+강감찬 010-0000-0000
+이순신 010-1234-5680
+'''
+
+# 7. for in을 이용하여 key만 추출하여 value를 출력하는 방법
+for key in phone_book.keys():
+    print(key, " : ", phone_book[key])
+'''
+홍길동  :  010-1234-5678
+강감찬  :  010-0000-0000
+이순신  :  010-1234-5680
+'''
+
+# 8. dict의 key를 이용하여 정렬하는 방법 : 파이썬 제공 sorted()를 이용
+sorted(phone_book)
+'''
+리스트로 반환
+
+['강감찬', '이순신', '홍길동']
+'''
+
+# 9. dict의 key를 이용하여 데이터를 삭제 : del을 이용
+del phone_book['이순신']
+'''
+{'홍길동': '010-1234-5678', '강감찬': '010-0000-0000'}
+'''
+
+# 10. dict내의 모든 데이터를 초기화 : dict의 clear()를 이용
+phone_book.clear()
+'''
+{}
+'''
+
+
+
+
+#### dict의 주요 함수들
+"""
+keys()      : dict 내의 모든 key들을 반환 / dict_keys([키 이름, 키 이름, ... ])
+values()    : dict 내의 모든 value들을 반환 / dict_values([값, 값, ... ])
+items()     : dict 내의 모든 항목을 key:value 형태로 반환
+get(key)    : 지정한 key에 해당하는 value를 반환 / 단, 해당 key가 없으면 None을 반환
+pop(key)    : 지정한 key에 해당하는 value를 반환하고, 해당 항목을 삭제 / 단, 해당 key가 없으면 keyError 예외발생
+popitem()   : 제일 마지막에 입력된 항목(key:value)을 반환하고, 해당 항목을 삭제
+clear()     : 모든 항목을 제거 / 단, dict 형태는 유지
+"""
+
+
+
+
+#### 람다 함수 (lambda)
+"""
+1. 람다 함수는 이름이 없는 함수
+2. 일회성 함수로 사용된다.
+3. 함수를 만들지 않고 함수화된 기능만 사용할 경우 주로 사용, '람다표현식'이라고도 호칭
+4. 주의 : 표현식 안에서 새로운 변수를 선언할 수 없다!!!
+5. 참고 : 람다 표현식은 한줄로 표현해야 하기 때문에 복잡한 기능을 사용할 경우에는
+          def로 함수를 정의하는 것이 좋다!!
+"""
+
+
+## 두 가지 값을 받아서 그 합을 변환하는 함수
+# 1. 일반 함수(def로 선언한 함수)
+def add(x, y):
+    return x + y
+
+sum = add(1, 2)
+
+
+# 2. 람다 함수
+sum = (lambda x, y : x + y) (1, 2)
+
+
+
+
+
+#### Console로부터 입력받은 문자를 dict내에서 검색하여 그 결과를 출력
+"""
+작업내용
+1. 제품명과 재고수를 갖는 dict를 선언
+2. Console로부터 입력받음
+3. 입력받은 문자를 통해 검색하여 재고수를 출력
+"""
+
+# 1. dict 생성
+items = { "커피음료": 7, "펜": 3, "종이컵": 2, 
+    "우유": 1, "콜라": 4, "책": 5 }
+
+# 2. Console 입력 : input() 이용
+item = input('제품명 입력 : ')
+
+# 3. 제품명으로 검색 후, 출력
+print(items[item])
+'''
+제품명 입력 : 커피음료
+7
+'''
+
+
+
+
+
+
+
+#### dict를 이용한 영한사전
+"""
+작업내용 : 영한 사전처럼 영어 단어를 입력하면, 해당하는 한글을 출력
+1. dict를 이용하여 단어를 입력
+2. 검색 가능
+
+3. 실행 결과는 '$'가 나타나며
+4. 입력 명령은 '<'를
+5. 출력 명령은 '>'로 구분
+6. 입력 형식은 "영어단어 : 한글" 형태
+7. 검색은 영어단어를 입력
+8. 종료는 'q'를 입력
+"""
+# 사용자에게 보여 줄 기본 메시지
+print('사전을 시작합니다.. 종료는 q를 입력')
+
+# "영얻단어:한글"와 같이 입력된 값을 저장
+dictionary = {}
+
+# 사용자가 q를 누를 때까지 무한반복 : while True:
+while True:
+    # '$'를 출력
+    st = input('$')                                                         # <== '<one:하나'    / '>one'
+    print('테스트 => ', st)
+    
+    # 첫 입력 문자를 추출
+    command = st[0]                                                         # st[0] <== '<'     / st[0] <== '>'
+    print('테스트 =>', command)
+    
+    if command == '<':             # 입력 명령                               # '<' == '<'        / '>' == '<'
+        st = st[1:]                                                          # 'one:하나'
+        print('테스트 => ',st)
+        
+        # "영어단어:한글"을 분리하여 key와 value
+        inputStr = st.split(':')                                             # 'one:하나' => ['one', '하나']
+        if len(inputStr) < 2:                                                # 2 < 2
+            print("입력 오류 발생!!!")
+        else:
+            dictionary[inputStr[0].strip()] = inputStr[1].strip()            # dictionary['one'] = '하나'
+    elif command == '>':           # 출력 명령                                # '>' == '>'
+        st = st[1: ]                                                         # 'one'     
+        inputStr = st.strip()
+        
+        if inputStr in dictionary:                                           # 'one' in dictionary
+            print(dictionary[inputStr])                                      # dictionary['one']
+        else:
+            print("{}가 사전에 없습니다.")
+
+    elif command == 'q':           # 사전 종료
+        break
+    
+    else:
+        print("입력 오류 발생!!!") 
+
+print('사전이 종료되었습니다.')
