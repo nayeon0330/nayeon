@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
-"""
+
+Created on Wed Dec 15 16:00 2021
+
 리스트 실습 내용 정리
 
-개인 연습
 """
 # 데이터를 갖는 리스트 선언
 music = ['Pop song', 'Hiphop', 'Ballade', 'Latin pop']
