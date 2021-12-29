@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thu Dec 20 9:00 2021
+Created on Thu Dec 20 16:00 2021
 
 Numpy에 대한 정리
 
