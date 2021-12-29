@@ -2,8 +2,6 @@
 """
 Created on Thu Dec 16 12:48:24 2021
 
-@author: Playdata
-
 문자열(str)에 대한 정리
 
 텍스트는 오랫동안 정보를 효율적으로 교환하는 가장 중요한 수단.
