@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """
 Created on Fri Dec 24 14:05:52 2021
+
+meta / folium 에 대하여.. 
 """
 
 import folium
