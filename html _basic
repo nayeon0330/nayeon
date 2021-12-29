@@ -1,5 +1,9 @@
-html에 대해서...
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Dec 22 16:00 2021
 
+html에 대해서...
+"""
 1. Java 웹 프로젝트 : Java EE
 2. 프로젝트 생성 : Dynamic Web Project
                            => file / New / Dynamic Web Project
